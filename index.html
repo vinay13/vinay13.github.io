@@ -19,24 +19,14 @@
 
 
 <!--<div class="container">-->
-<!--<div ng-controller = "homeCtrl">-->
-
-<!--<h3> {{users.name}} {{users.email}} {{users.location}}</h3>-->
-<!--<img src={{users.avatar_url}} style="width:100px; height:100px; "></img>-->
-	
-<!--<li ng-repeat="n in records">{{n.name}} {{n.language}} {{n.description}}</li>-->
-<!--</div>-->
-
-
-
-
-
 <!--</div>-->
 
 
 <h2> Channels </h2>
 
 <p>Channels is the new concept in Django framework .Django is synchronous and Channels provide asynchronous request by websockets .</p>
+<p> channels are mostly used as cron jobs and building a chat application</p>
+
 
 <h3>consumers</h3>
 <p>Channels works on redis server which is in-memory. Channels work as message broker which all messages are stored in Queue(first in first out).</p>
@@ -51,6 +41,22 @@
 
 
 
+<h4>Lets code</h4>
+
+<h5>Installation</h5>
+
+<code>pip install -U channels</code>
+
+After installing channels , add channels app in your settings file.
+
+
+<code>Installed_apps={</code>
+<code> app , </code>
+<code> channels, </code>
+<code>}</code>
+
+now add a routing file in main project folder .
+<!--<img src="">-->
 
 
 
