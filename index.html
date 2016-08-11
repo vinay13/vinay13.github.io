@@ -38,8 +38,16 @@
 
 <p>Channels is the new concept in Django framework .Django is synchronous and Channels provide asynchronous request by websockets .</p>
 
+<h3>consumers</h3>
+<p>Channels works on redis server which is in-memory. Channels work as message broker which all messages are stored in Queue(first in first out).</p>
+<p> there are consumers and workers . messages are add to AsgiHandler and connect to the other ends and broadcast the message. </p>
 
-<p>Channels works on redis server which is in-memory.</p>
+
+
+<h4>Groups</h4>
+<p>Groups are the core concept of channels . Group provide multi-cast messaging.</p>
+<p>Instead of echoing the message back to the client like we did above, we’ll instead send it to the whole Group,</p>
+<p></p>which means any client who’s been added to it will get the message.</p>
 
 
 
