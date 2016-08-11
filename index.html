@@ -29,15 +29,15 @@ channels are mostly used as cron jobs and building a chat application
 
 
 <h3>consumers</h3>
-<p>Channels works on redis server which is in-memory. Channels work as message broker which all messages are stored in Queue(first in first out).</p>
-<p> there are consumers and workers . messages are add to AsgiHandler and connect to the other ends and broadcast the message. </p>
+Channels works on redis server which is in-memory. Channels work as message broker which all messages are stored in Queue(first in first out).
+ there are consumers and workers . messages are add to AsgiHandler and connect to the other ends and broadcast the message. 
 
 
 
 <h4>Groups</h4>
-<p>Groups are the core concept of channels . Group provide multi-cast messaging.</p>
-<p>Instead of echoing the message back to the client like we did above, we’ll instead send it to the whole Group,</p>
-<p></p>which means any client who’s been added to it will get the message.</p>
+Groups are the core concept of channels . Group provide multi-cast messaging.
+Instead of echoing the message back to the client like we did above, we’ll instead send it to the whole Group,
+which means any client who’s been added to it will get the message.
 
 
 
@@ -67,7 +67,7 @@ After installing channels , add channels app in your settings file.
 
 <p><code>def ws_add(message):</code></p>
 	
-<p>	<code>Group("chat").add(message.reply_channel)</code></p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Group("chat").add(message.reply_channel)</code></p>
 
 
 
