@@ -28,7 +28,7 @@ Channels is the new concept in Django framework .Django is synchronous and Chann
 channels are mostly used as cron jobs and building a chat application
 
 
-<h3>consumers</h3>
+<h4>consumers</h4>
 Channels works on redis server which is in-memory. Channels work as message broker which all messages are stored in Queue(first in first out).
  there are consumers and workers . messages are add to AsgiHandler and connect to the other ends and broadcast the message. 
 
@@ -45,41 +45,45 @@ which means any client who’s been added to it will get the message.
 
 <h5>Installation</h5>
 
-<p><code>pip install -U channels</code></p>
+<pre>pip install -U channels</pre>
 
 After installing channels , add channels app in your settings file.
 
 
-<p>
-<code>Installed_apps={</code></p>
-<p><code> app , </code></p>
-<p><code> channels, </code></p>
-<p><code>}</code></p>
+<pre>
+Installed_apps={
+	app ,
+	.
+	.
+    channels, 
+}</pre>
 
 <p>And now add a below code in app/consumers.py .</p>
 <!--<img src="">-->
 
 
 
-<code>from channels import Channel</code>
-<p><code>from channels import Group </code></p>
+<pre>
+from channels import Channel
+from channels import Group 
 
 
-<p><code>def ws_add(message):</code></p>
-	
-<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Group("chat").add(message.reply_channel)</code></p>
+def ws_add(message):
+	Group("chat").add(message.reply_channel)
+</pre>
 
 
 
 create new routing file in the same folder where settings file . 
 It is same as urls.py in django app.
 
-<p><code>from channels.routing import route</code></p>
-<p><code>from chat.consumers import ws_add</code></p>
+<pre>from channels.routing import route
+from chat.consumers import ws_add
 
-</p><code>channel_routing = [ </code></p>
-				<p></code>route("websocket.connect", ws_add),</code> </p>
-				<p><code>]</code></p>
+channel_routing = [ 
+				route("websocket.connect", ws_add),</code> </p>
+				]
+</pre>
 
 
 
@@ -109,7 +113,7 @@ and open another browser instance and do same as above and u can see the message
 
 
 
- 
+
 
 
 
