@@ -61,7 +61,13 @@ After installing channels , add channels app in your settings file.
 
 
 
+<code>from channels import Channel</code>
+<p><code>from channels import Group </code></p>
 
+
+<p><code>def ws_add(message):</code></p>
+	
+<p>	<code>Group("chat").add(message.reply_channel)</code></p>
 
 
 
