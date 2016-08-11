@@ -56,7 +56,7 @@ After installing channels , add channels app in your settings file.
 <p><code> channels, </code></p>
 <p><code>}</code></p>
 
-<p>And now add a routing file in main project folder .</p>
+<p>And now add a below code in app/consumers.py .</p>
 <!--<img src="">-->
 
 
@@ -71,8 +71,50 @@ After installing channels , add channels app in your settings file.
 
 
 
-</body>
+create new routing file in the same folder where settings file . 
+It is same as urls.py in django app.
 
+<p><code>from channels.routing import route</code></p>
+<p><code>from chat.consumers import ws_add</code></p>
+
+</p><code>channel_routing = [ </code></p>
+				<p></code>route("websocket.connect", ws_add),</code> </p>
+				<p><code>]</code></p>
+
+
+
+And last add channel_layer code in settings.py
+
+<pre>
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "myproject.routing.channel_routing",
+    },
+}
+</pre>
+
+
+And now go to your terminal and run your server <pre>python manage.py runserver </pre>
+Go to browser console .
+and write some javascript/html5 to test your app.
+
+
+<pre>socket= new WebSocket("ws://"+ window.location.host+"/room1");</pre>
+<pre>socket.onmessage = function(response){console.log(response.data)};</pre>
+<pre>socket.send('hi!!');</pre>
+
+and open another browser instance and do same as above and u can see the messages are broadcast on both browsers .
+
+
+
+
+ 
+
+
+
+
+</body>
 
 
 </html>
