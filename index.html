@@ -77,7 +77,7 @@ from channels import Group
 
 
 def ws_add(message):
-	Group("chat").add(message.reply_channel)
+    Group("chat").add(message.reply_channel)
 </pre>
 
 
@@ -124,14 +124,14 @@ and open another browser instance and do same as above and u can see the message
 <h5>connect and disconnect channels inbuilt function </h5>
 <pre>
 def ws_connect(message):
-	room = message.content['path'].strip("/")
-	message.channel_session['room'] = room
-	Group('chat-{}'.format(room)).add(message.reply_channel)
+    room = message.content['path'].strip("/")
+    message.channel_session['room'] = room
+    Group('chat-{}'.format(room)).add(message.reply_channel)
 </pre>
 
 <pre>
 def ws_disconnect(message):
-	Group("chat-{}".format(message.channel_session['room'])).discard(message.reply_channel)
+    Group("chat-{}".format(message.channel_session['room'])).discard(message.reply_channel)
 </pre>
 
 
